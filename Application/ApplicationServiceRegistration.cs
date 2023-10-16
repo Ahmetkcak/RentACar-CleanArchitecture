@@ -1,5 +1,5 @@
 ﻿using Core.Application.Pipelines.Caching;
-using Core.Application.Pipelines.Lgging;
+using Core.Application.Pipelines.Logging;
 using Core.Application.Pipelines.Transaction;
 using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
@@ -34,7 +34,7 @@ public static class ApplicationServiceRegistration
             configuration.AddOpenBehavior(typeof(CacheRemovingBehavior<,>));
             configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
-        services.AddSingleton<LoggerServiceBase,FileLogger>();
+        services.AddSingleton<LoggerServiceBase,MsSqlLogger>();
         return services;
     }
     public static IServiceCollection AddSubClassesOfType(
