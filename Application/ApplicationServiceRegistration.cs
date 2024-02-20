@@ -34,7 +34,7 @@ public static class ApplicationServiceRegistration
             configuration.AddOpenBehavior(typeof(CacheRemovingBehavior<,>));
             configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
-        services.AddSingleton<LoggerServiceBase,MsSqlLogger>();
+        services.AddSingleton<LoggerServiceBase,FileLogger>();
         return services;
     }
     public static IServiceCollection AddSubClassesOfType(
